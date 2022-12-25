@@ -1,2 +1,4 @@
 # nowcoder_springboot
- A springboot application
+   **in progress**
+   
+   use SpringBoot,SSM(Spring,SpringMVC,MyBatis),Redis,kafka,Electicsearch
