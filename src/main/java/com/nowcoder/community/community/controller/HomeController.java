@@ -28,18 +28,18 @@ public class HomeController {
     @RequestMapping(path = "/index",method = RequestMethod.GET)
     public String getIndexPage(Model model){
 
-        List<DiscussPost> list = discussPostService.findDiscussPosts(0,0,10);
-        List<Map<String,Object>> discussPosts = new ArrayList<>();
-        if (list != null){
-            for (DiscussPost post:list){
-                Map<String,Object> map = new HashMap<>();
-                map.put("post",post);
-                User user= userService.findUserById(post.getUserId());
-                map.put("user",user);
+        List<DiscussPost> list = discussPostService.findDiscussPosts(0, 0, 10);
+        List<Map<String, Object>> discussPosts = new ArrayList<>();
+        if (list != null) {
+            for (DiscussPost post : list) {
+                Map<String, Object> map = new HashMap<>();
+                map.put("post", post);
+                User user = userService.findUserById(post.getUserId());
+                map.put("user", user);
                 discussPosts.add(map);
             }
         }
-        model.addAttribute("discussPosts",discussPosts);
+        model.addAttribute("discussPosts", discussPosts);
         return "/index";
     }
 }
