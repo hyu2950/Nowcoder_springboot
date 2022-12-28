@@ -3,6 +3,7 @@ package com.nowcoder.community.community.controller;
 
 import com.nowcoder.community.community.entity.DiscussPost;
 import com.nowcoder.community.community.entity.User;
+
 import com.nowcoder.community.community.service.DiscussPostService;
 import com.nowcoder.community.community.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,6 +27,7 @@ public class HomeController {
 
     @RequestMapping(path = "/index",method = RequestMethod.GET)
     public String getIndexPage(Model model){
+
         List<DiscussPost> list = discussPostService.findDiscussPosts(0,0,10);
         List<Map<String,Object>> discussPosts = new ArrayList<>();
         if (list != null){
