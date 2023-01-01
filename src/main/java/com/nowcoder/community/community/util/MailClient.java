@@ -14,6 +14,7 @@ import org.springframework.stereotype.Component;
 public class MailClient {
     private static final Logger logger = LoggerFactory.getLogger(MailClient.class);
     @Autowired
+
     private JavaMailSender mailSender;
 
     @Value("${spring.mail.username}")
