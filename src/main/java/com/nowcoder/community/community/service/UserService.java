@@ -80,7 +80,7 @@ public class UserService implements CommunityConstant {
 
         // 注册用户
         user.setSalt(CommunityUtil.generateUUID().substring(0,5));
-        user.setPassword(CommunityUtil.md5(user.getPassword()) + user.getSalt());
+        user.setPassword(CommunityUtil.md5(user.getPassword() + user.getSalt()));
         user.setType(0);
         user.setStatus(0); // 未激活
         user.setActivationCode(CommunityUtil.generateUUID()); // 生成激活码
@@ -156,5 +156,9 @@ public class UserService implements CommunityConstant {
 
         map.put("ticket",loginTicket.getTicket());
         return map;
+    }
+
+    public void logout(String ticket){
+        loginTicketMapper.updateStatus(ticket,1);
     }
 }
